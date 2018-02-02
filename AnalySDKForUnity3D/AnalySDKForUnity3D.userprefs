@@ -1,17 +1,6 @@
-﻿<Properties StartupItem="Assembly-CSharp-firstpass.csproj">
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Demo.cs">
-    <Files>
-      <File FileName="Assets/Plugins/AnalySDK/ALSDKUser.cs" Line="44" Column="6" />
-      <File FileName="Assets/Plugins/AnalySDK/AnalySDK.cs" Line="1" Column="1" />
-      <File FileName="Assets/Plugins/AnalySDK/AnalySDKImpl.cs" Line="1" Column="1" />
-      <File FileName="Assets/Plugins/iOS/AnalySDK/iOSAnalySDKImpl.cs" Line="24" Column="4" />
-      <File FileName="Assets/Plugins/AnalySDK/ALSDKPayEvent.cs" Line="17" Column="29" />
-      <File FileName="Assets/Plugins/AnalySDK/ALSDKRole.cs" Line="32" Column="4" />
-      <File FileName="Assets/Plugins/iOS/MOBTool/iOS/MOBAutoPackage/Editor/MOBPostProcessBuild.cs" Line="11" Column="23" />
-      <File FileName="Assets/Demo.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -67,6 +67,7 @@ namespace com.analysdk.unity3d
 		{
 			Hashtable hashValue = newUser.HashtableValue();
 			String json = MiniJSON.jsonEncode(hashValue);
+			Debug.Log ("json :" + json);
 			__iosAnalySDKUserRegist (json);
 		}
 
@@ -88,6 +89,8 @@ namespace com.analysdk.unity3d
 		{
 			Hashtable hashValue = newRole.HashtableValue();
 			String json = MiniJSON.jsonEncode(hashValue);
+
+			Debug.Log ("json :" + json);
 			__iosAnalySDKRoleCreate (json);
 		}
 

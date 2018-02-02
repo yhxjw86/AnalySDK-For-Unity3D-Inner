@@ -11,6 +11,15 @@
 @interface ALSDKRole : NSObject
 
 /**
+ 创建角色
+ 
+ @param userId 用户id
+ @param roleId 角色id
+ @return 用户实体
+ */
++ (ALSDKRole *)roleWithUserId:(NSString *)userId roleId:(NSString *)roleId;
+
+/**
  用户id(必传属性)
  */
 @property (nonatomic, copy) NSString *userId;
@@ -90,6 +99,5 @@
  */
 @property (nonatomic, strong) NSDictionary *customProperties;
 
-+ (ALSDKRole *)roleWithUserId:(NSString *)userId roleId:(NSString *)roleId;
 
 @end

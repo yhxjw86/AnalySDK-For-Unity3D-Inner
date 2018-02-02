@@ -10,14 +10,15 @@ namespace com.analysdk.unity3d
 	public class ALSDKPayEvent  
 	{
 
-		public double payMoney;
-		public string payContent;
-		public string payType;
-		public string payActivity;
-		public double payDiscount;
-		public string discountReason;
-		public Hashtable customProperties;
+		public int ? payMoney				{get;set;}
+		public string payContent			{get;set;}
+		public string payType				{get;set;}
+		public string payActivity			{get;set;}
+		public double ? payDiscount			{get;set;}
+		public string discountReason		{get;set;}
+		public Hashtable customProperties	{get;set;}
 
+		//将所有属性转换成hashtable形式，以方便与oc交互
 		public Hashtable HashtableValue()
 		{
 			Type t = this.GetType();
@@ -31,25 +32,38 @@ namespace com.analysdk.unity3d
 
 				if (name == "customProperties") 
 				{
-					object value = item.GetValue(this, null);
-					Hashtable customProperties = (Hashtable)value;
-					Hashtable jsonHash = new Hashtable ();
+					object customHash = item.GetValue(this, null);
 
-					foreach (System.Collections.DictionaryEntry hashObj in customProperties )
+					Hashtable custom = (Hashtable)customHash;
+
+					if (custom != null) 
 					{
-						jsonHash.Add (hashObj.Key.ToString (), hashObj.Value.ToString ());
+						Hashtable jsonHash = new Hashtable ();
+						foreach (string key in custom.Keys )
+						{
+							string v = custom[key].ToString();
+
+							if (v.Length > 0)
+							{
+								jsonHash.Add (key, v);
+							}
+						}
+
+						String json = MiniJSON.jsonEncode(jsonHash);
+						hash.Add (name, json);
 					}
-					String json = MiniJSON.jsonEncode(jsonHash);
-					hash.Add (name, json);
 
 				} 
 				else
 				{
-					object value = item.GetValue(this, null);
-					hash.Add ("_" + name, value);
+					object v = item.GetValue(this, null);
+
+					if (v != null)
+					{
+						hash.Add ("_" + name, v);
+					}
+
 				}
-
-
 			}
 
 			return hash;

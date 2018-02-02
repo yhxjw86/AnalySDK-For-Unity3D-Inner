@@ -63,23 +63,23 @@ namespace com.analysdk.unity3d
 				 
 		}
 			
-		public string userId;
-		public string nickName;
-		public string gender;
-		public string country;
-		public string province;
-		public string city;
-		public int age;
-		public string constellation;
-		public string zodiac;
-		public string regType;
-		public string regChannel;
-		public string loginType;
-		public string loginChannel;
-		public string userType;
-		public string addiction;
-		public int money;
-		public Hashtable customProperties;
+		public string userId 		{get;set;}
+		public string nickName 		{get;set;}
+		public string gender 		{get;set;}
+		public string country 		{get;set;}
+		public string province 		{get;set;}
+		public string city 			{get;set;}
+		public int ? age 			{get;set;}
+		public string constellation	{get;set;}
+		public string zodiac		{get;set;}
+		public string regType		{get;set;}
+		public string regChannel	{get;set;}
+		public string loginType		{get;set;}
+		public string loginChannel	{get;set;}
+		public string userType		{get;set;}
+		public string addiction		{get;set;}
+		public int ? money			{get;set;}
+		public Hashtable customProperties	{get;set;}
 
 
 		//将所有属性转换成hashtable形式，以方便与oc交互
@@ -96,25 +96,40 @@ namespace com.analysdk.unity3d
 
 				if (name == "customProperties") 
 				{
-					object value = item.GetValue(this, null);
-					Hashtable customProperties = (Hashtable)value;
-					Hashtable jsonHash = new Hashtable ();
+					object customHash = item.GetValue(this, null);
 
-					foreach (System.Collections.DictionaryEntry hashObj in customProperties )
+					Hashtable custom = (Hashtable)customHash;
+
+					if (custom != null) 
 					{
-						jsonHash.Add (hashObj.Key.ToString (), hashObj.Value.ToString ());
+						Hashtable jsonHash = new Hashtable ();
+						foreach (string key in custom.Keys )
+						{
+							string v = custom[key].ToString();
+
+							if (v.Length > 0)
+							{
+								jsonHash.Add (key, v);
+							}
+						}
+
+						String json = MiniJSON.jsonEncode(jsonHash);
+						hash.Add (name, json);
 					}
 
-					String json = MiniJSON.jsonEncode(jsonHash);
-					hash.Add (name, json);
 				} 
 				else
 				{
-					object value = item.GetValue(this, null);
-					hash.Add ("_" + name, value);
+					object v = item.GetValue(this, null);
+
+					if (v != null)
+					{
+						hash.Add ("_" + name, v);
+					}
+
 				}
 			}
-
+				
 			return hash;
 		}
 

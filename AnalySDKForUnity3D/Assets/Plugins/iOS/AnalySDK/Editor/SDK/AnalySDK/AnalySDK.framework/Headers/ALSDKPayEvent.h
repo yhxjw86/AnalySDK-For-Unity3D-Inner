@@ -10,7 +10,10 @@
 
 @interface ALSDKPayEvent : NSObject
 
-@property (nonatomic, strong) NSNumber *payMoney;
+/**
+ 支付价钱,单位为分
+ */
+@property (nonatomic) int payMoney;
 
 @property (nonatomic, copy) NSString *payContent;
 

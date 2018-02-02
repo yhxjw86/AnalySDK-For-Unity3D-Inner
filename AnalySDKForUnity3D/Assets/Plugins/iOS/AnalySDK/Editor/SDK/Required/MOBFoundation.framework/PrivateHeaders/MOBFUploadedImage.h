@@ -18,4 +18,9 @@
  */
 @property (nonatomic, strong, readonly) NSDictionary* scaleImages;
 
+/**
+ 生成的原始图片地址
+ */
+@property (nonatomic, copy, readonly) NSString *srcImageURL;
+
 @end

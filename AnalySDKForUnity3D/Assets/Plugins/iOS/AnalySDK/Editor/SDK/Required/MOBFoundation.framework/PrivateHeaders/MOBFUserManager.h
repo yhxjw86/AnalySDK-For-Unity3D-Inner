@@ -39,4 +39,13 @@ extern NSString *kMOBFUserInfoChangedNotification;
  */
 - (void)getCurrentUser:(void (^ _Nullable)(MOBFUser * _Nullable user, NSError * _Nullable error))handler;
 
+/**
+ 置换MobUser
+
+ @param appUserIds appId数组
+ @param result MobUser用户数组回调
+ */
+- (void)exchangeUserWithAppUserIds:(NSArray <NSString *>* _Nonnull )appUserIds
+                        result:(void (^_Nullable)(NSArray <MOBFUser *> * _Nullable mobUsers, NSError * _Nullable error))result;
+
 @end
