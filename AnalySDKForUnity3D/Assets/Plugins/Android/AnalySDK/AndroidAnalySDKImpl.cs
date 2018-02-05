@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 namespace com.analysdk.unity3d
 {
 	#if UNITY_ANDROID
@@ -14,7 +15,7 @@ namespace com.analysdk.unity3d
 		{
 			
 			androidJavaClass = new AndroidJavaClass ("com/mob/game/CoCosAPI");
-		    String json = MiniJSON.jsonEncode(configs);
+		    String json = MiniJSONBase.jsonEncode(configs);
 			if (androidJavaClass != null) {
 				androidJavaClass.CallStatic ("trackEvent", eventName,json);
 			}
@@ -34,7 +35,7 @@ namespace com.analysdk.unity3d
 		{
 			Hashtable hashtable = payEvent.HashtableValue;
 			androidJavaClass = new AndroidJavaClass ("com/mob/game/CoCosAPI");
-			String json = MiniJSON.jsonEncode(hashtable);
+			String json = MiniJSONBase.jsonEncode(hashtable);
 			if (androidJavaClass != null) {
 				androidJavaClass.CallStatic ("trackPayEvent",json);
 			}
@@ -44,7 +45,7 @@ namespace com.analysdk.unity3d
 		{
 			Hashtable hashtable = newUser.HashtableValue;
 			androidJavaClass = new AndroidJavaClass ("com/mob/game/CoCosAPI");
-			String json = MiniJSON.jsonEncode(hashtable);
+			String json = MiniJSONBase.jsonEncode(hashtable);
 			if (androidJavaClass != null) {
 				androidJavaClass.CallStatic ("userRegister",json);
 			}
@@ -54,7 +55,7 @@ namespace com.analysdk.unity3d
 		{
 			Hashtable hashtable = loginUser.HashtableValue;
 			androidJavaClass = new AndroidJavaClass ("com/mob/game/CoCosAPI");
-			String json = MiniJSON.jsonEncode(hashtable);
+			String json = MiniJSONBase.jsonEncode(hashtable);
 			if (androidJavaClass != null) {
 				androidJavaClass.CallStatic ("userLogin",json);
 			}
@@ -65,7 +66,7 @@ namespace com.analysdk.unity3d
 		{
 			Hashtable hashtable = updateUser.HashtableValue;
 			androidJavaClass = new AndroidJavaClass ("com/mob/game/CoCosAPI");
-			String json = MiniJSON.jsonEncode(hashtable);
+			String json = MiniJSONBase.jsonEncode(hashtable);
 			if (androidJavaClass != null) {
 				androidJavaClass.CallStatic ("userUpdate",json);
 			}
@@ -76,7 +77,7 @@ namespace com.analysdk.unity3d
 		{
 			Hashtable hashtable = newRole.HashtableValue;
 			androidJavaClass = new AndroidJavaClass ("com/mob/game/CoCosAPI");
-			String json = MiniJSON.jsonEncode(hashtable);
+			String json = MiniJSONBase.jsonEncode(hashtable);
 			if (androidJavaClass != null) {
 				androidJavaClass.CallStatic ("roleCreate",json);
 			}
@@ -86,7 +87,7 @@ namespace com.analysdk.unity3d
 		{
 			Hashtable hashtable = loginRole.HashtableValue;
 			androidJavaClass = new AndroidJavaClass ("com/mob/game/CoCosAPI");
-			String json = MiniJSON.jsonEncode(hashtable);
+			String json = MiniJSONBase.jsonEncode(hashtable);
 			if (androidJavaClass != null) {
 				androidJavaClass.CallStatic ("roleLogin",json);
 			}
@@ -96,7 +97,7 @@ namespace com.analysdk.unity3d
 		{
 			Hashtable hashtable = updateRole.HashtableValue;
 			androidJavaClass = new AndroidJavaClass ("com/mob/game/CoCosAPI");
-			String json = MiniJSON.jsonEncode(hashtable);
+			String json = MiniJSONBase.jsonEncode(hashtable);
 			if (androidJavaClass != null) {
 				androidJavaClass.CallStatic ("roleUpdate",json);
 			}
